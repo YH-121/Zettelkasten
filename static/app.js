@@ -458,6 +458,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+
+
             cy = cytoscape({
                 container: document.getElementById('graph-container'),
                 elements: data.elements,
@@ -468,6 +470,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 wheelSensitivity: 0.2
             });
+
+            // Ensure graph is properly sized
+            cy.resize();
+            cy.fit();
 
             cy.on('tap', 'node', function (evt) {
                 const node = evt.target;
