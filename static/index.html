@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zettelkasten</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <aside id="sidebar">
+            <div class="sidebar-header">
+                <h2>Zettelkasten</h2>
+                <input type="text" id="search-input" placeholder="Search notes or #tags...">
+            </div>
+            <div id="notes-list">
+                <!-- Notes will be populated here -->
+            </div>
+            <div id="tags-list">
+                <!-- Tags will be populated here -->
+            </div>
+        </aside>
+        <main id="main-content">
+            <div id="toolbar">
+                <button id="btn-edit" title="Edit Note">Edit</button>
+                <button id="btn-preview" title="Preview Markdown">Preview</button>
+                <button id="btn-graph" title="Graph View">Graph</button>
+                <button id="btn-graph-arrow" title="Toggle Arrows">⇄</button>
+                <div style="flex:1"></div>
+                <button id="btn-theme" title="Toggle Dark Mode">🌙</button>
+                <button id="btn-new" title="New Note">New</button>
+                <button id="btn-save" title="Save Note (Ctrl+S)">Save</button>
+                <button id="btn-delete" class="danger" title="Delete Note">Delete</button>
+            </div>
+            <div id="editor-container" class="view-mode-edit">
+                <div id="editor-wrapper" style="height: 100%; width: 100%;"></div>
+                <div id="note-preview"></div>
+                <div id="graph-container"></div>
+            </div>
+        </main>
+        <aside id="backlinks-panel">
+            <h3>Backlinks</h3>
+            <div id="backlinks-list">
+                <!-- Backlinks will be populated here -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Command Palette -->
+    <div id="command-palette-overlay">
+        <div id="command-palette">
+            <input type="text" id="command-input" placeholder="Type a command or search notes...">
+            <div id="command-list"></div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <script type="module" src="/static/app.js"></script>
+</body>
+
+</html>
